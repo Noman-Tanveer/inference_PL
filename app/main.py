@@ -9,6 +9,7 @@ import cv2
 import numpy as np
 
 from app.api.dependencies.detect import detect_v5
+from app.api.dependencies.generate import create_image
 
 app = FastAPI()
 
@@ -16,9 +17,13 @@ app = FastAPI()
 def read_root():
     return {"Hello": "World"}
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.post("/generate-image/")
+async def generate_image(text: str):
+    # Create an image based on the received text
+    img_data = create_image(text)
+
+    # Return the image as a response
+    return {"image": img_data}
 
 @app.get("/detect/")
 async def detect_image(image_bytes: bytes = File()):

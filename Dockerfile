@@ -1,6 +1,9 @@
 # Use an official Python runtime as a parent image
 FROM python:3.8-slim
 
+# Install dependencies
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
 # Set the working directory inside the container
 WORKDIR /app
 
@@ -21,4 +24,4 @@ ENV FASTAPI_HOST=0.0.0.0
 ENV FASTAPI_PORT=8000
 
 # Command to run the FastAPI application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
