@@ -5,7 +5,6 @@ from fastapi import FastAPI
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import StreamingResponse
 import io
-import cv2
 import numpy as np
 
 from app.api.dependencies.detect import detect_v5
@@ -17,13 +16,13 @@ app = FastAPI()
 def read_root():
     return {"Hello": "World"}
 
-@app.post("/generate-image/")
-async def generate_image(text: str):
-    # Create an image based on the received text
-    img_data = create_image(text)
+# @app.post("/generate-image/")
+# async def generate_image(text: str):
+#     # Create an image based on the received text
+#     img_data = create_image(text)
 
-    # Return the image as a response
-    return {"image": img_data}
+#     # Return the image as a response
+#     return {"image": img_data}
 
 @app.get("/detect/")
 async def detect_image(image_bytes: bytes = File()):

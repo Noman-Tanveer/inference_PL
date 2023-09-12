@@ -5,7 +5,7 @@ api_url = "http://localhost:8000/"  # Replace with your actual URL
 
 def yolo_request():
     # Load an image as bytes (you can read an image file using open() in binary mode)
-    with open("resources/maxresdefault.jpg", "rb") as image_file:
+    with open("resources/image1-1.png", "rb") as image_file:
         image_bytes = image_file.read()
 
     # Send a POST request to the process-image endpoint
@@ -35,4 +35,4 @@ def diffusion_request():
 
 if __name__ == "__main__":
     yolo_request()
-    diffusion_request()
+    # diffusion_request()
