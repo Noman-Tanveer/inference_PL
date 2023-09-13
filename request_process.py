@@ -1,9 +1,10 @@
 import requests
+import asyncio
 
 # Replace with the URL of your FastAPI server
 api_url = "http://localhost:8000/"  # Replace with your actual URL
 
-def yolo_request():
+async def yolo_request():
     # Load an image as bytes (you can read an image file using open() in binary mode)
     with open("resources/image1-1.png", "rb") as image_file:
         image_bytes = image_file.read()
@@ -34,5 +35,6 @@ def diffusion_request():
         print("Image generation failed:", response.status_code)
 
 if __name__ == "__main__":
-    yolo_request()
-    # diffusion_request()
+    for i in range(1):
+        asyncio.run(yolo_request())
+        diffusion_request()

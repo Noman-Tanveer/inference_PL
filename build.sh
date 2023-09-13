@@ -1,2 +1,2 @@
-docker build --rm -t fast:latest .
-docker run -it -v fast_code:/app --rm -p 8000:8000 fast:latest
+docker build -t fast_api:latest .
+docker run -it --rm -p 8080:8000 fast_api:latest
