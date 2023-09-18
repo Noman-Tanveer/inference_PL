@@ -5,3 +5,4 @@ opencv-python
 requests
 diffusers
 pandas>=1.1.4
+python-multipart

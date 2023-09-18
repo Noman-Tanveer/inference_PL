@@ -10,7 +10,7 @@ async def yolo_request():
         image_bytes = image_file.read()
 
     # Send a POST request to the process-image endpoint
-    response = requests.get(api_url+"detect/", files={"image_bytes": ("resources/maxresdefault.jpg", image_bytes)})
+    response = requests.post(api_url+"detect/", files={"image_bytes": ("resources/maxresdefault.jpg", image_bytes)})
 
     # Check the response
     if response.status_code == 200:
@@ -35,6 +35,6 @@ def diffusion_request():
         print("Image generation failed:", response.status_code)
 
 if __name__ == "__main__":
-    for i in range(1):
+    for i in range(10):
         asyncio.run(yolo_request())
-        diffusion_request()
+        asyncio.run(diffusion_request())

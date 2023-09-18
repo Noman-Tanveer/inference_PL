@@ -14,13 +14,13 @@ spec:
     spec:
       containers:
         - name: my-fastapi-app
-          image: my-fastapi-app:latest
+          image: fast1container.azurecr.io/fast_app:v1
           resources:
             requests:
-              memory: "500Mi"
-              cpu: "0.5"
+              memory: "3Gb"
+              cpu: "1.0"
             limits:
-              memory: "1000Mi"
+              memory: "8Gb"
               cpu: "1"
           ports:
             - containerPort: 8000

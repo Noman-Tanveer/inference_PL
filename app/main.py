@@ -18,7 +18,7 @@ from fastapi.openapi.docs import get_swagger_ui_html
 
 def swagger_monkey_patch(*args, **kwargs):
     """
-    Wrap the function which is generating the HTML for the /docs endpoint and 
+    Wrap the function which is generating the HTML for the /docs endpoint and
     overwrite the default values for the swagger js and css.
     """
     return get_swagger_ui_html(
@@ -54,7 +54,7 @@ async def generate_image(prompt: Item):
     return Response(content=img_bytes, media_type="image/png")
 
 
-@app.get("/detect/")
+@app.post("/detect/")
 async def detect_image(image_bytes: bytes = File()):
     # Call the detect function
     processed_image_bytes = detect_v5(image_bytes)

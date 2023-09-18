@@ -2,3 +2,4 @@
 *.pt
 *.png
 *.jpg
+!resources/image.png
